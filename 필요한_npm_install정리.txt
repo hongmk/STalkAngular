@@ -26,4 +26,4 @@ bower install angular-ui-router --save
 
 --개인프로젝트 진행용
 bower install angular-listview
-bower install ui-listView
+bower install angular-pull-to-refresh --save

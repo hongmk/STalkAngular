@@ -87,12 +87,17 @@ body {
   margin: 0px;
   border-radius: 3px;
   font-family: "Lato", sans-serif;
-  font-size: 15px;
-  padding: 2px;
+  font-size: 10px;
+  padding: 0px;
   border: 2;
   color: #286090;
   background-color: #fff;
   border-color: #ccc;
   cursor: pointer;
   outline: 0;
+}
+
+div {
+
+    margin-bottom: 10px;
 }

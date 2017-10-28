@@ -10,8 +10,8 @@
 
 angular.module('angularJsexamApp')
   .controller('ContentsListCtrl', [
-  	"Data", "$scope", "$state", 
-  	function (Data, $scope, $state) {
+  	"Data", "$scope", "$state", '$q',
+  	function (Data, $scope, $state, $q) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -56,6 +56,14 @@ angular.module('angularJsexamApp')
     $scope.age =0;
     $scope.userinfo={};
 
+    //통신으로 읽어올 글정보를 테스트용으로 1건 하드코딩함
+    $scope.nicname="Nicname"
+    $scope.timestamp = "24:11:22"
+    $scope.title="Content Title 테스트용"
+    $scope.content ="테스트용으로 content를 하트코딩함. 실제로는 JSON배열로 받아 contents-list.html 에서 ..."; 
+    $scope.likeCnt = 5;
+    $scope.commentCnt= 6;
+
     $scope.getUserInfo = function(id) {
     	var dataPromise = Data.getData(
     		'http://172.16.2.8:52273/user/'+id);
@@ -71,5 +79,15 @@ angular.module('angularJsexamApp')
     $scope.getContent = function(id) {
         window.alert("GET USER CONTENT ID="+id);
     }
+
+    $scope.onReload = function() {
+      window.alert("page refresh");
+      var deferred = $q.defer();
+      setTimeout(function() {
+        deferred.resolve(true);
+      }, 1000);
+      return deferred.promise;
+    };
+
 
   }]);

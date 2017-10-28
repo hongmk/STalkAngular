@@ -10,8 +10,6 @@
  */
 
 //개인프로젝트를 위한 추가
- var myApp = angular.module('myApp', ['listview'])
- var appModule = angular.module("app", ['ui-listView'])
 
 angular
   .module('angularJsexamApp', [
@@ -22,7 +20,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'ui.router'
+    'ui.router',
+    'mgcrea.pullToRefresh'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $routeProvider) {
     $urlRouterProvider.otherwise("/");
