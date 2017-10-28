@@ -8,6 +8,11 @@
  *
  * Main module of the application.
  */
+
+//개인프로젝트를 위한 추가
+ var myApp = angular.module('myApp', ['listview'])
+ var appModule = angular.module("app", ['ui-listView'])
+
 angular
   .module('angularJsexamApp', [
     'ngAnimate',
@@ -27,30 +32,10 @@ angular
         templateUrl:'views/main.html',
         controller:'MainCtrl'
       })
-      .state('login', {
-        url:'/login',
-        templateUrl:'views/login.html',
-        controller:'LoginCtrl'
-      })
-      .state('signup',{
-        url:'/signup',
-        templateUrl:'views/signup.html',
-        controller:'SignupCtrl'
-      })
-      .state('user-list',{
-        url:'/user/list',
-        templateUrl:'views/user-list.html',
-        controller:'UserListCtrl'
-      })
-      .state('user-detail',{
-        url:'/user/detail',
-        templateUrl:'views/user-detail.html',
-        controller:'UserDetailCtrl'
-      })
-      .state('user-withdraw',{
-        url:'/user/withdraw',
-        templateUrl:'views/user-withdraw.html',
-        controller:'UserWithdrawCtrl'
+      .state('contents-list',{
+        url:'/contents/list',
+        templateUrl:'views/contents-list.html',
+        controller:'ContentsListCtrl'
       })
     /*$routeProvider
       .when('/', {

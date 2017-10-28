@@ -7,8 +7,9 @@
  * # UserListCtrl
  * Controller of the angularJsexamApp
  */
+
 angular.module('angularJsexamApp')
-  .controller('UserListCtrl', [
+  .controller('ContentsListCtrl', [
   	"Data", "$scope", "$state", 
   	function (Data, $scope, $state) {
     this.awesomeThings = [
@@ -66,4 +67,9 @@ angular.module('angularJsexamApp')
     		//window.alert("SUCCESS getUserInfo"+id+JSON.stringify($scope.userinfo));
     	},function(reason){},function(update){});
     }
+
+    $scope.getContent = function(id) {
+        window.alert("GET USER CONTENT ID="+id);
+    }
+
   }]);
