@@ -1,0 +1,25 @@
+npm install -g yo
+npm install -g grunt-cli
+npm install -g generator-angular
+yo angular AngularJSExam		(이미 설정된 프로젝트를 git clone 해서 쓰는경우는 skip)
+	n -> n -> y -> y -> y -> y
+
+npm install
+bower install
+
+아래두개는 수행 후 index.html, app.js도 수정이 필요 
+bower install angular-bootstrap --save
+bower install angular-ui-router --save
+
+
+*install 외의 설정등은 모두 20171014.docx 강의정리 워드파일참조
+
+실행테스트: grunt serve
+
+배포파일생성테스트: grunt build
+			-> 빌드 후 AngularJSExam/dist/ 디렉토리에 있는 모든 내용을 복사
+			-> nginx-1.12.1/html/ 하위에 모두 붙여넣기
+			-> nginx.exe 실행 (웬만하면 cmd창에서 실행시킬것.. 나중에 종료하기 좀 더 수월함)
+			-> 브라우저에서 localhost 접속
+
+*nginx-1.12.1 은 압축해제 후 원하는 경로 아무데나 가져다놓으면됨.
