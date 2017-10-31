@@ -1,46 +1,60 @@
+<div>
+  <button class="butto" ng-click="requestUserList()">hello</button>
+
+</div>
+
 <div class="row">
   <div div class="col-md-4 col-md-offset-4">
    <!--list group-->
       <div class="list-group">
-        <div ng-repeat="obj in userList">
+        <div ng-repeat="obj in contentsList">
+
+          <!--아래 a테그를 클릭하면 해당 글을 불러올 함수호출-->
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" 
-                  ng-click="getContent(obj.id)">
+                  ng-click="getContent(obj.row_id)">
+
+            <!--닉네임/최종수정시간표시-->      
             <div>
               <p>
-                <small class="text-muted">{{nicname}} [{{obj.id}}] </small>
+                <small class="text-muted">{{obj.nicname}} [{{obj.row_id}}] </small>
                 <span class="pull-right">
                     <span class="glyphicon glyphicon-time"></span> 
-                    <small class="text-muted">{{timestamp}}</small> 
+                    <small class="text-muted">{{obj.last_modify_date}}</small> 
                 </span>
                   
               </p>
             </div>
 
+            <!--글제목-->      
             <div class="d-title justify-content-between">
               <h3> 
-                <span class="mb-title" >{{title}}</span>
+                <span class="mb-title" >{{obj.title}}</span>
               </h3>
             </div>
 
+            <!--글내용--> 
             <div class="d-content justify-content-between">
-              <span class="mb-content" >{{content}}</span>
+              <span class="mb-content" >{{obj.content}}</span>
             </div>
 
           </a>
           
           <div class="btn-group btn-group-justified ">
+            <!--좋아요버튼 -->
             <a href="#" class="btn flat-btn " ng-click="getContent(obj.id)" >
                 <h6><p>
                   <span class="glyphicon glyphicon-heart" ></span> 
-                  <span class="badge:hover">{{likeCnt}}</span>
+                  <span class="badge:hover">{{obj.like_cnt}}</span>
                 </p></h6>
             </a>
-            <a href="#" class="btn flat-btn" ng-click="getContent(obj.id)" >
+            <!--댓글작성버튼 (해당글을 불러옴) -->
+            <a href="#" class="btn flat-btn" ng-click="getContent(obj.row_id)" >
                 <h6><p>
                   <span class="glyphicon glyphicon-comment" ></span> 
-                  <span class="badge:hover">{{commentCnt}}</span>
+                  <span class="badge:hover">{{obj.comment_cnt}}</span>
                 </p></h6>
             </a>
+            <!--소셜공유버튼 -->
             <a href="#" class="btn flat-btn " ng-click="getContent(obj.id)">
                 <h5><p>
                   <span class=" fa fa-share-alt"></span> 

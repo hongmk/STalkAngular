@@ -20,8 +20,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'ui.router',
-    'mgcrea.pullToRefresh'
+    'ui.router'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $routeProvider) {
     $urlRouterProvider.otherwise("/");
@@ -35,7 +34,7 @@ angular
         url:'/contents/list',
         templateUrl:'views/contents-list.html',
         controller:'ContentsListCtrl'
-      })
+      });
     /*$routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
