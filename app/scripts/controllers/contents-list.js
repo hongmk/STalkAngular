@@ -26,7 +26,7 @@ angular.module('angularJsexamApp')
         var dataPromise = Data.getData(
          //'http://192.168.0.4:52273/user');
     	// var dataPromise = Data.getData(
-    	 	'http://192.168.0.4:52275/contents/list/'+1);
+    	 	'http://172.16.2.8:52275/contents/list/'+1);
     	// 폰에서 와이파이로 접근하려면 IP로 열어줘야함
     	// var dataPromise = Data.getData(
     	// 	'http://172.16.2.8:52273/user');
