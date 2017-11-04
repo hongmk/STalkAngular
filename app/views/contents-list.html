@@ -8,7 +8,7 @@
 
           <!--아래 a테그를 클릭하면 해당 글을 불러올 함수호출-->
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" 
-                  ng-click="getContent(obj.row_id)">
+                  ng-click="goContent(obj.row_id)">
 
             <!--닉네임/최종수정시간표시-->      
             <div>
@@ -38,21 +38,21 @@
           
           <div class="btn-group btn-group-justified ">
             <!--좋아요버튼 -->
-            <a href="#" class="btn flat-btn " ng-click="getContent(obj.id)" >
+            <a href="#" class="btn flat-btn " ng-click="goContent(obj.id)" >
                 <h6><p>
                   <span class="glyphicon glyphicon-heart" ></span> 
                   <span class="badge:hover">{{obj.like_cnt}}</span>
                 </p></h6>
             </a>
             <!--댓글작성버튼 (해당글을 불러옴) -->
-            <a href="#" class="btn flat-btn" ng-click="getContent(obj.row_id)" >
+            <a href="#" class="btn flat-btn" ng-click="goContent(obj.row_id)" >
                 <h6><p>
                   <span class="glyphicon glyphicon-comment" ></span> 
                   <span class="badge:hover">{{obj.comment_cnt}}</span>
                 </p></h6>
             </a>
             <!--소셜공유버튼 -->
-            <a href="#" class="btn flat-btn " ng-click="getContent(obj.id)">
+            <a href="#" class="btn flat-btn " ng-click="goContent(obj.id)">
                 <h5><p>
                   <span class=" fa fa-share-alt"></span> 
                 </p></h5>

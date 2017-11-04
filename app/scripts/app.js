@@ -34,6 +34,14 @@ angular
         url:'/contents/list',
         templateUrl:'views/contents-list.html',
         controller:'ContentsListCtrl'
+      })
+      .state('contents-content',{
+        url:'/contents/content',
+        templateUrl:'views/contents-content.html',
+        controller:'ContentsContentCtrl',
+        params:{
+          row_id:null
+        }
       });
     /*$routeProvider
       .when('/', {
