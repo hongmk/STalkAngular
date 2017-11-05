@@ -6,9 +6,9 @@
       <div class="list-group">
         <div ng-repeat="obj in contentsList">
 
-          <!--아래 a테그를 클릭하면 해당 글을 불러올 함수호출-->
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" 
-                  ng-click="goContent(obj.row_id)">
+          <!--아래 a테그를 클릭하면 해당글 row_id를 포함해서 링크시킴(안드로이드에서 받아서 사용할 내용임)-->
+          <a href="http://192.168.0.4:9000/contents/content&{{obj.row_id}}" class="list-group-item list-group-item-action flex-column align-items-start" >
+                  <!-- ng-click="goContent(obj.row_id)"> -->
 
             <!--닉네임/최종수정시간표시-->      
             <div>
