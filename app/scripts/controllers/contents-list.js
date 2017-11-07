@@ -10,18 +10,20 @@
 
 angular.module('angularJsexamApp')
   .controller('ContentsListCtrl', [
-  	"Data", "$scope", "$state", "$location",
+  	"Data", "$scope", "$state", "$location", 
   	function (Data, $scope, $state, $location) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    $scope.board_id=0;
     //페이지가 로딩되었을 때 호출
     $scope.$on('$viewContentLoaded', function() {
+        $scope.board_id = $location.search().board_id;
         var board_id = $location.search().board_id;
         if(board_id !=undefined) {
-            window.alert(board_id)
+            window.alert(board_id);
     	   $scope.requestContentsList(board_id);
         }
     });
@@ -58,10 +60,17 @@ angular.module('angularJsexamApp')
     	}, function(reason){}, function(update){});
     }
 
-    $scope.goContent = function(row_id) {
-        window.alert("GO CONTENT ID="+row_id);
-        $state.go('contents-content', {row_id:row_id});
+    $scope.plusLikeCnt = function(row_id) {
+         window.alert(JSON.stringify(row_id));
+         var dataPromise = Data.modifyData(
+            'http://192.168.0.4:52275/contents/content/like/'+row_id,'');
+
+        dataPromise.then(function(results) {
+            $scope.requestContentsList($scope.board_id);
+        }, function(reason){}, function(update){});
     }
+
+
 
 
   }]);
