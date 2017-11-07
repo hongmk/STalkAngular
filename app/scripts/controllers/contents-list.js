@@ -10,8 +10,8 @@
 
 angular.module('angularJsexamApp')
   .controller('ContentsListCtrl', [
-  	"Data", "$scope", "$state",
-  	function (Data, $scope, $state) {
+  	"Data", "$scope", "$state", "$location",
+  	function (Data, $scope, $state, $location) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -19,14 +19,18 @@ angular.module('angularJsexamApp')
     ];
     //페이지가 로딩되었을 때 호출
     $scope.$on('$viewContentLoaded', function() {
-    	$scope.requestContentsList();
+        var board_id = $location.search().board_id;
+        if(board_id !=undefined) {
+            window.alert(board_id)
+    	   $scope.requestContentsList(board_id);
+        }
     });
     $scope.contentsList = [];
-    $scope.requestContentsList = function() {
+    $scope.requestContentsList = function(board_id) {
         var dataPromise = Data.getData(
          //'http://192.168.0.4:52273/user');
     	// var dataPromise = Data.getData(
-    	 	'http://192.168.0.4:52275/contents/list/'+1);
+    	 	'http://192.168.0.4:52275/contents/list/'+board_id);
     	// 폰에서 와이파이로 접근하려면 IP로 열어줘야함
     	// var dataPromise = Data.getData(
     	// 	'http://172.16.2.8:52273/user');
