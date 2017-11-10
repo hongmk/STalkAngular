@@ -83,7 +83,21 @@ body {
 }
 
 div {
-    margin-bottom: 15px;
     overflow-x: hidden;
 }
 
+.list-group {
+  background: #eee;
+}
+
+.repeat-group{
+  margin: 3px;
+}
+
+.list-group-item{
+  margin-right: 0px;
+}
+
+.d-content{
+  margin-bottom: 18px;
+}

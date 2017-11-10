@@ -17,6 +17,8 @@ angular.module('angularJsexamApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.restfulURL = 'http://192.168.0.4:52275';
+    $scope.angularURL = 'http://192.168.0.4:9000';
     $scope.board_id=0;
     //페이지가 로딩되었을 때 호출
     $scope.$on('$viewContentLoaded', function() {
@@ -32,7 +34,7 @@ angular.module('angularJsexamApp')
         var dataPromise = Data.getData(
          //'http://192.168.0.4:52273/user');
     	// var dataPromise = Data.getData(
-    	 	'http://172.16.2.8:52275/contents/list/'+board_id);
+    	 	$scope.restfulURL+'/contents/list/'+board_id);
     	// 폰에서 와이파이로 접근하려면 IP로 열어줘야함
     	// var dataPromise = Data.getData(
     	// 	'http://172.16.2.8:52273/user');
@@ -49,7 +51,7 @@ angular.module('angularJsexamApp')
 
     $scope.deleteUserInfo = function(id) {
     	var dataPromise = Data.deleteData(
-    		'http://172.16.2.8:52275/user/'+id, '');
+    		$scope.restfulURL+'/user/'+id, '');
 
     	dataPromise.then(function(results) {
     		$scope.requestUserList();
@@ -58,7 +60,7 @@ angular.module('angularJsexamApp')
 
     $scope.modifyUserInfo = function(id,name,age) {
     	var dataPromise = Data.modifyData(
-    		'http://172.16.2.8:52275/user/'+id, '&name='+name+'&age='+age);
+    		$scope.restfulURL+'/user/'+id, '&name='+name+'&age='+age);
 
     	dataPromise.then(function(results) {
     		$scope.requestUserList();
@@ -68,7 +70,7 @@ angular.module('angularJsexamApp')
     $scope.plusLikeCnt = function(row_id) {
          window.alert(JSON.stringify(row_id));
          var dataPromise = Data.modifyData(
-            'http://172.16.2.8:52275/contents/content/like/'+row_id,'');
+            $scope.restfulURL+'/contents/content/like/'+row_id,'');
 
         dataPromise.then(function(results) {
             $scope.requestContentsList($scope.board_id);
