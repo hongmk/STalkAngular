@@ -7,7 +7,7 @@
         <div ng-repeat="obj in contentsList">
 
           <!--아래 a테그를 클릭하면 해당글 row_id를 포함해서 링크시킴(안드로이드에서 받아서 사용할 내용임)-->
-          <a href="http://192.168.0.4:9000/contents/content&getContent&{{obj.row_id}}" class="list-group-item list-group-item-action flex-column align-items-start" >
+          <a href="http://172.16.2.8:9000/contents/content&getContent&{{obj.row_id}}" class="list-group-item list-group-item-action flex-column align-items-start" >
                   <!-- ng-click="goContent(obj.row_id)"> -->
 
             <!--닉네임/최종수정시간표시-->      
@@ -45,14 +45,14 @@
                 </p></h6>
             </a>
             <!--댓글작성버튼 (해당글을 불러옴) -->
-            <a href="http://192.168.0.4:9000/contents/content&{{obj.row_id}}" class="btn btn-default">
+            <a href="http://172.16.2.8:9000/contents/content&{{obj.row_id}}" class="btn btn-default">
                 <h6><p>
                   <span class="glyphicon glyphicon-comment" ></span> 
                   <span class="badge:hover">{{obj.comment_cnt}}</span>
                 </p></h6>
             </a>
             <!--소셜공유버튼 -->
-            <a href="http://192.168.0.4:9000/contents/content&share&{{obj.row_id}}" class="btn btn-default" >
+            <a href="http://172.16.2.8:9000/contents/content&share&{{obj.row_id}}" class="btn btn-default" >
                 <h5><p>
                   <span class=" fa fa-share-alt"></span> 
                 </p></h5>

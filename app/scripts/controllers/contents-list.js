@@ -32,19 +32,24 @@ angular.module('angularJsexamApp')
         var dataPromise = Data.getData(
          //'http://192.168.0.4:52273/user');
     	// var dataPromise = Data.getData(
-    	 	'http://192.168.0.4:52275/contents/list/'+board_id);
+    	 	'http://172.16.2.8:52275/contents/list/'+board_id);
     	// 폰에서 와이파이로 접근하려면 IP로 열어줘야함
     	// var dataPromise = Data.getData(
     	// 	'http://172.16.2.8:52273/user');
     	dataPromise.then(function(results) {
             window.alert(JSON.stringify(results.data));
     		$scope.contentsList= results.data;
+            for (var i = 0; i < $scope.contentsList.length; i++) {
+                var obj = $scope.contentsList[i].last_modify_date.replace("T", " ");
+                $scope.contentsList[i].last_modify_date 
+                        = obj.replace(".000Z", "");
+            }
     	}, function(reason){},function(update){});
     }
 
     $scope.deleteUserInfo = function(id) {
     	var dataPromise = Data.deleteData(
-    		'http://192.168.0.4:52273/user/'+id, '');
+    		'http://172.16.2.8:52275/user/'+id, '');
 
     	dataPromise.then(function(results) {
     		$scope.requestUserList();
@@ -53,7 +58,7 @@ angular.module('angularJsexamApp')
 
     $scope.modifyUserInfo = function(id,name,age) {
     	var dataPromise = Data.modifyData(
-    		'http://192.168.0.4:52273/user/'+id, '&name='+name+'&age='+age);
+    		'http://172.16.2.8:52275/user/'+id, '&name='+name+'&age='+age);
 
     	dataPromise.then(function(results) {
     		$scope.requestUserList();
@@ -63,7 +68,7 @@ angular.module('angularJsexamApp')
     $scope.plusLikeCnt = function(row_id) {
          window.alert(JSON.stringify(row_id));
          var dataPromise = Data.modifyData(
-            'http://192.168.0.4:52275/contents/content/like/'+row_id,'');
+            'http://172.16.2.8:52275/contents/content/like/'+row_id,'');
 
         dataPromise.then(function(results) {
             $scope.requestContentsList($scope.board_id);
