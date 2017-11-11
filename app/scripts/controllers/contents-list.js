@@ -17,8 +17,8 @@ angular.module('angularJsexamApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.restfulURL = 'http://192.168.0.4:52275';
-    $scope.angularURL = 'http://192.168.0.4:9000';
+    $scope.restfulURL = 'http://172.16.2.8:52275';
+    $scope.angularURL = 'http://172.16.2.8:9000';
     $scope.board_id=0;
     //페이지가 로딩되었을 때 호출
     $scope.$on('$viewContentLoaded', function() {
